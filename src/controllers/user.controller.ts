@@ -59,7 +59,7 @@ export const patchUser = async (
 
   const { name, lastname, email, password } = req.body;
 
-  if (name === undefined && lastname === undefined && email === undefined) {
+  if (name === undefined && lastname === undefined && email === undefined && password === undefined) {
     return res.status(400).json({ error: 'No data to update' });
   }
 
