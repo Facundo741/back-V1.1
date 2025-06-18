@@ -26,11 +26,11 @@ export const loginUser = async (req: Request, res: Response): Promise<any> => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.TOKEN_SECRET as string,
-      { expiresIn: '1h' }
-    );
+ const token = jwt.sign(
+  { id: user.id, email: user.email, role: user.role },
+  process.env.TOKEN_SECRET as string,
+  { expiresIn: '1h' }
+);
 
     res.json({ message: 'Login successful', token });
   } catch (error) {
