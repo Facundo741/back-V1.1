@@ -3,7 +3,11 @@ import { User } from '../types/user';
 import bcrypt from 'bcryptjs';
 
 export const getAllUsers = async (): Promise<User[]> => {
-  const result = await pool.query(`SELECT id, name, lastname, email FROM users`);
+  const result = await pool.query(
+    `SELECT id,name, lastname, email 
+      FROM users 
+      WHERE role != 'admin'
+    `);
   return result.rows;
 };
 
