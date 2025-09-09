@@ -38,3 +38,12 @@ export const loginUser = async (req: Request, res: Response): Promise<any> => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+export const logoutUser = async (req: Request, res: Response): Promise<any> => {
+  try {
+    res.json({ message: 'Logout successful' });
+  } catch (error) {
+    console.error('Logout error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
